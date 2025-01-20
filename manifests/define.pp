@@ -14,17 +14,6 @@ define postfix::define (
 
   $config_file_options_hash = $::postfix::config_file_options_hash,
 ) {
-  if $config_file_path { validate_absolute_path($config_file_path) }
-  if $config_file_owner { validate_string($config_file_owner) }
-  if $config_file_group { validate_string($config_file_group) }
-  if $config_file_mode { validate_string($config_file_mode) }
-  if $config_file_source { validate_string($config_file_source) }
-  if $config_file_string { validate_string($config_file_string) }
-  if $config_file_template { validate_string($config_file_template) }
-
-  if $config_file_notify { validate_string($config_file_notify) }
-  if $config_file_require { validate_string($config_file_require) }
-
   $_config_file_path  = pick($config_file_path, "${::postfix::config_dir_path}/${name}")
   $_config_file_owner = pick($config_file_owner, $::postfix::config_file_owner)
   $_config_file_group = pick($config_file_group, $::postfix::config_file_group)
